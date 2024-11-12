@@ -6,6 +6,8 @@ import { v2 as cloudinary } from "cloudinary";
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
+import notificatoinRoutes from "./routes/notification.route.js";
+
 import { connMongoDB } from "./config/db.js";
 
 const app = express();
@@ -25,6 +27,8 @@ app.use(cookieParser());
 app.use("/api/auth/", authRoutes);
 app.use("/api/user/", userRoutes);
 app.use("api/post", postRoutes);
+app.use("/api/notification", notificatoinRoutes);
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
